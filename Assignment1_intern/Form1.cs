@@ -1,6 +1,10 @@
 using System.Text.RegularExpressions;
+using System.Linq;
 using System.IO;
 using System.Xml.Serialization;
+using SuperSimpleTcp;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Assignment1_intern
 {
@@ -12,6 +16,8 @@ namespace Assignment1_intern
             InitializeComponent();
             students = loadStudentsFromCSV();
         }
+
+        SimpleTcpClient client;
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -65,7 +71,37 @@ namespace Assignment1_intern
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            client = new SimpleTcpClient(serverIP.Text);
+            client.Events.DataReceived += Events_DataReceived;
+            client.Events.Connected += Events_Connected;
+            client.Events.Disconnected += Events_Disconnected;
+        }
 
+        private void Events_Disconnected(Object sender, EventArgs e)
+        {
+            this.Invoke((MethodInvoker)delegate
+            {
+                historyBox.Text += $"Server disconnected.{Environment.NewLine}";
+                buttonConnect.Enabled = true;
+            });
+        }
+
+        private void Events_DataReceived(object sender, SuperSimpleTcp.DataReceivedEventArgs e)
+        {
+            this.Invoke((MethodInvoker)delegate
+            {
+                byte[] dataBytes = e.Data.ToArray();
+                string dataString = Encoding.UTF8.GetString(dataBytes);
+                historyBox.Text += $"Server: {dataString}{Environment.NewLine}";
+            });
+        }
+
+        private void Events_Connected(Object sender, EventArgs e)
+        {
+            this.Invoke((MethodInvoker)delegate
+            {
+                historyBox.Text += $"Server connected.{Environment.NewLine}";
+            });
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -349,10 +385,29 @@ namespace Assignment1_intern
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (students.ObjectTo_csv())
+            string msg = students.ObjectTo_csv();
+            if (msg != "not_csv")
             {
                 MessageBox.Show("SAVED!");
+                if (client.IsConnected)
+                {
+                    if (!string.IsNullOrEmpty(msg))
+                    {
+                        try
+                        {
+                            client.Send(msg);
+                            historyBox.Text += $"Data sent to server.{Environment.NewLine}";
+                        }
+                        catch (Exception ex)
+                        {
+                            historyBox.Text += $"Error sending data: {ex.Message}{Environment.NewLine}";
+                        }
+
+                    }
+
+                }
             }
+
             else
             {
                 MessageBox.Show("Could not save as a csv file");
@@ -378,12 +433,30 @@ namespace Assignment1_intern
                 return students;
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return students;
             }
- 
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonConnect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                client.Connect();
+                buttonConnect.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

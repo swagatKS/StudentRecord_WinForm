@@ -57,24 +57,28 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
+            label10 = new Label();
+            serverIP = new Label();
+            historyBox = new TextBox();
+            buttonConnect = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial Black", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(409, 34);
+            label1.Location = new Point(618, 54);
             label1.Name = "label1";
-            label1.Size = new Size(163, 40);
+            label1.Size = new Size(179, 40);
             label1.TabIndex = 0;
-            label1.Text = "Namaste!";
+            label1.Text = "NAMASTE!";
             label1.TextAlign = ContentAlignment.TopCenter;
             label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(31, 106);
+            label2.Location = new Point(72, 129);
             label2.Name = "label2";
             label2.Size = new Size(59, 25);
             label2.TabIndex = 1;
@@ -84,7 +88,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(31, 279);
+            label3.Location = new Point(72, 302);
             label3.Name = "label3";
             label3.Size = new Size(56, 25);
             label3.TabIndex = 2;
@@ -94,7 +98,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(31, 192);
+            label4.Location = new Point(72, 215);
             label4.Name = "label4";
             label4.Size = new Size(123, 25);
             label4.TabIndex = 3;
@@ -103,17 +107,16 @@
             // 
             // nametextBox
             // 
-            nametextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            nametextBox.Location = new Point(173, 100);
+            nametextBox.Location = new Point(214, 123);
             nametextBox.Name = "nametextBox";
-            nametextBox.Size = new Size(646, 31);
+            nametextBox.Size = new Size(649, 31);
             nametextBox.TabIndex = 4;
             nametextBox.TextChanged += textBox1_TextChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(31, 235);
+            label5.Location = new Point(72, 258);
             label5.Name = "label5";
             label5.Size = new Size(69, 25);
             label5.TabIndex = 5;
@@ -122,17 +125,16 @@
             // 
             // clgnametextBox
             // 
-            clgnametextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            clgnametextBox.Location = new Point(173, 186);
+            clgnametextBox.Location = new Point(214, 209);
             clgnametextBox.Name = "clgnametextBox";
-            clgnametextBox.Size = new Size(646, 31);
+            clgnametextBox.Size = new Size(652, 31);
             clgnametextBox.TabIndex = 6;
             clgnametextBox.TextChanged += textBox2_TextChanged;
             // 
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(173, 233);
+            radioButton1.Location = new Point(214, 256);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(75, 29);
             radioButton1.TabIndex = 7;
@@ -144,7 +146,7 @@
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(288, 231);
+            radioButton2.Location = new Point(329, 254);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(93, 29);
             radioButton2.TabIndex = 8;
@@ -156,7 +158,7 @@
             // radioButton3
             // 
             radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(411, 231);
+            radioButton3.Location = new Point(452, 254);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(133, 29);
             radioButton3.TabIndex = 9;
@@ -168,7 +170,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(31, 147);
+            label6.Location = new Point(72, 170);
             label6.Name = "label6";
             label6.Size = new Size(49, 25);
             label6.TabIndex = 10;
@@ -177,7 +179,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(173, 143);
+            dateTimePicker1.Location = new Point(214, 166);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(300, 31);
             dateTimePicker1.TabIndex = 11;
@@ -186,7 +188,7 @@
             // 
             radioButton4.AutoSize = true;
             radioButton4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton4.Location = new Point(577, 231);
+            radioButton4.Location = new Point(618, 254);
             radioButton4.Name = "radioButton4";
             radioButton4.Size = new Size(168, 29);
             radioButton4.TabIndex = 12;
@@ -197,15 +199,14 @@
             // 
             // phnotextBox
             // 
-            phnotextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            phnotextBox.Location = new Point(173, 273);
+            phnotextBox.Location = new Point(214, 296);
             phnotextBox.Name = "phnotextBox";
-            phnotextBox.Size = new Size(646, 31);
+            phnotextBox.Size = new Size(652, 31);
             phnotextBox.TabIndex = 13;
             // 
             // cgpatextBox
             // 
-            cgpatextBox.Location = new Point(173, 320);
+            cgpatextBox.Location = new Point(214, 343);
             cgpatextBox.Name = "cgpatextBox";
             cgpatextBox.Size = new Size(113, 31);
             cgpatextBox.TabIndex = 14;
@@ -213,7 +214,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(31, 326);
+            label7.Location = new Point(72, 349);
             label7.Name = "label7";
             label7.Size = new Size(56, 25);
             label7.TabIndex = 15;
@@ -222,7 +223,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(31, 368);
+            label8.Location = new Point(72, 391);
             label8.Name = "label8";
             label8.Size = new Size(121, 25);
             label8.TabIndex = 16;
@@ -230,16 +231,15 @@
             // 
             // emailtextBox
             // 
-            emailtextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            emailtextBox.Location = new Point(173, 362);
+            emailtextBox.Location = new Point(214, 385);
             emailtextBox.Name = "emailtextBox";
-            emailtextBox.Size = new Size(646, 31);
+            emailtextBox.Size = new Size(652, 31);
             emailtextBox.TabIndex = 17;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(31, 416);
+            label9.Location = new Point(72, 444);
             label9.Name = "label9";
             label9.Size = new Size(51, 25);
             label9.TabIndex = 18;
@@ -248,7 +248,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(173, 412);
+            checkBox1.Location = new Point(208, 444);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(148, 29);
             checkBox1.TabIndex = 19;
@@ -259,7 +259,7 @@
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(351, 412);
+            checkBox2.Location = new Point(384, 444);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(184, 29);
             checkBox2.TabIndex = 20;
@@ -270,7 +270,7 @@
             // checkBox3
             // 
             checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(561, 412);
+            checkBox3.Location = new Point(590, 444);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new Size(147, 29);
             checkBox3.TabIndex = 21;
@@ -281,7 +281,7 @@
             // checkBox4
             // 
             checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(735, 412);
+            checkBox4.Location = new Point(773, 444);
             checkBox4.Name = "checkBox4";
             checkBox4.RightToLeft = RightToLeft.No;
             checkBox4.Size = new Size(115, 29);
@@ -293,7 +293,7 @@
             // checkBox5
             // 
             checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(173, 447);
+            checkBox5.Location = new Point(208, 491);
             checkBox5.Name = "checkBox5";
             checkBox5.Size = new Size(86, 29);
             checkBox5.TabIndex = 23;
@@ -306,7 +306,7 @@
             button1.BackColor = SystemColors.ScrollBar;
             button1.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(140, 517);
+            button1.Location = new Point(88, 554);
             button1.Name = "button1";
             button1.Size = new Size(138, 59);
             button1.TabIndex = 24;
@@ -318,7 +318,7 @@
             // 
             button2.BackColor = SystemColors.ScrollBar;
             button2.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(332, 517);
+            button2.Location = new Point(314, 554);
             button2.Name = "button2";
             button2.Size = new Size(147, 59);
             button2.TabIndex = 25;
@@ -330,7 +330,7 @@
             // 
             button3.BackColor = SystemColors.ScrollBar;
             button3.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(520, 517);
+            button3.Location = new Point(556, 554);
             button3.Name = "button3";
             button3.Size = new Size(143, 59);
             button3.TabIndex = 26;
@@ -341,7 +341,7 @@
             // button4
             // 
             button4.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.Location = new Point(840, 97);
+            button4.Location = new Point(881, 120);
             button4.Name = "button4";
             button4.Size = new Size(112, 34);
             button4.TabIndex = 27;
@@ -353,7 +353,7 @@
             // 
             button5.BackColor = SystemColors.ScrollBar;
             button5.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(704, 517);
+            button5.Location = new Point(796, 554);
             button5.Name = "button5";
             button5.Size = new Size(136, 59);
             button5.TabIndex = 28;
@@ -361,12 +361,59 @@
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BorderStyle = BorderStyle.FixedSingle;
+            label10.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(74, 36);
+            label10.Name = "label10";
+            label10.Size = new Size(84, 28);
+            label10.TabIndex = 29;
+            label10.Text = "Server:";
+            // 
+            // serverIP
+            // 
+            serverIP.AutoSize = true;
+            serverIP.BorderStyle = BorderStyle.FixedSingle;
+            serverIP.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            serverIP.Location = new Point(186, 36);
+            serverIP.Name = "serverIP";
+            serverIP.Size = new Size(170, 28);
+            serverIP.TabIndex = 30;
+            serverIP.Text = "127.0.0.1:12345";
+            serverIP.Click += label11_Click;
+            // 
+            // historyBox
+            // 
+            historyBox.Location = new Point(1017, 120);
+            historyBox.Multiline = true;
+            historyBox.Name = "historyBox";
+            historyBox.ScrollBars = ScrollBars.Both;
+            historyBox.Size = new Size(362, 427);
+            historyBox.TabIndex = 31;
+            // 
+            // buttonConnect
+            // 
+            buttonConnect.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonConnect.Location = new Point(384, 32);
+            buttonConnect.Name = "buttonConnect";
+            buttonConnect.Size = new Size(112, 34);
+            buttonConnect.TabIndex = 32;
+            buttonConnect.Text = "Connect";
+            buttonConnect.UseVisualStyleBackColor = true;
+            buttonConnect.Click += buttonConnect_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(981, 644);
+            ClientSize = new Size(1415, 693);
+            Controls.Add(buttonConnect);
+            Controls.Add(historyBox);
+            Controls.Add(serverIP);
+            Controls.Add(label10);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -434,5 +481,9 @@
         private Button button3;
         private Button button4;
         private Button button5;
+        private Label label10;
+        private Label serverIP;
+        private TextBox historyBox;
+        private Button buttonConnect;
     }
 }

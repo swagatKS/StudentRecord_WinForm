@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SuperSimpleTcp;
 
 namespace Assignment1_intern
 {
@@ -83,7 +84,7 @@ namespace Assignment1_intern
             return strings;
         }
 
-        public bool ObjectTo_csv()
+        public string ObjectTo_csv()
         {
             long logSize = 10 * 1024 * 1024;
             string path = "C:\\Users\\ksswa\\source\\repos\\Assignment1_intern\\";
@@ -125,19 +126,20 @@ namespace Assignment1_intern
                 foreach (Student s in StudentMap.Values)
                 {
                     message += s.getName() + "," + s.getDob() + "," + s.getClgname() + "," + char.ToString(s.getGender()) + "," + s.getPhno() + "," + s.getCgpa().ToString() + "," + s.getEmail() + "," + string.Join("-", s.getSkills().ToArray()) + "\n";
-                }
 
+                }
 
                 wtr.Write(message); // write the log message.
                 wtr.Close();
                 wtr.Dispose();
-                return true;
+                
+                return message;
             }
 
             catch (Exception exp)
             {
                 Console.WriteLine(exp.Message);
-                return false;
+                return "not_csv";
             }
         }
         
