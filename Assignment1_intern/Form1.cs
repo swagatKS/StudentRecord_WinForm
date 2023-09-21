@@ -461,5 +461,10 @@ namespace Assignment1_intern
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
