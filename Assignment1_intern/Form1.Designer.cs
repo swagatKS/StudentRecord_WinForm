@@ -414,7 +414,7 @@
             button6.Name = "button6";
             button6.Size = new Size(138, 59);
             button6.TabIndex = 24;
-            button6.Text = "POST";
+            button6.Text = "POOL";
             button6.UseVisualStyleBackColor = false;
             button6.Click += button1_Click;
             // 
