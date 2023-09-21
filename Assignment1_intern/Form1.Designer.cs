@@ -61,6 +61,7 @@
             serverIP = new Label();
             historyBox = new TextBox();
             buttonConnect = new Button();
+            button6 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -318,7 +319,7 @@
             // 
             button2.BackColor = SystemColors.ScrollBar;
             button2.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(314, 554);
+            button2.Location = new Point(260, 554);
             button2.Name = "button2";
             button2.Size = new Size(147, 59);
             button2.TabIndex = 25;
@@ -330,7 +331,7 @@
             // 
             button3.BackColor = SystemColors.ScrollBar;
             button3.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(556, 554);
+            button3.Location = new Point(452, 554);
             button3.Name = "button3";
             button3.Size = new Size(143, 59);
             button3.TabIndex = 26;
@@ -353,7 +354,7 @@
             // 
             button5.BackColor = SystemColors.ScrollBar;
             button5.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(796, 554);
+            button5.Location = new Point(632, 554);
             button5.Name = "button5";
             button5.Size = new Size(136, 59);
             button5.TabIndex = 28;
@@ -404,6 +405,19 @@
             buttonConnect.UseVisualStyleBackColor = true;
             buttonConnect.Click += buttonConnect_Click;
             // 
+            // button6
+            // 
+            button6.BackColor = SystemColors.ScrollBar;
+            button6.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.ForeColor = SystemColors.ActiveCaptionText;
+            button6.Location = new Point(804, 554);
+            button6.Name = "button6";
+            button6.Size = new Size(138, 59);
+            button6.TabIndex = 24;
+            button6.Text = "POST";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -418,6 +432,7 @@
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
+            Controls.Add(button6);
             Controls.Add(button1);
             Controls.Add(checkBox5);
             Controls.Add(checkBox4);
@@ -485,5 +500,6 @@
         private Label serverIP;
         private TextBox historyBox;
         private Button buttonConnect;
+        private Button button6;
     }
 }
