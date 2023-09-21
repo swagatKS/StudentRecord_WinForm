@@ -87,7 +87,9 @@ namespace Assignment1_intern
         public string ObjectTo_csv()
         {
             long logSize = 10 * 1024 * 1024;
-            string path = "C:\\Users\\ksswa\\source\\repos\\Assignment1_intern\\";
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+            path = path.Substring(0, path.Length - 43);
+            //string path = "C:\\Users\\ksswa\\source\\repos\\Assignment1_intern\\";
             string logFile = path + "StudentData.csv";
             try
             {

@@ -61,6 +61,7 @@
             serverIP = new Label();
             historyBox = new TextBox();
             buttonConnect = new Button();
+            button6 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -306,7 +307,7 @@
             button1.BackColor = SystemColors.ScrollBar;
             button1.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(88, 554);
+            button1.Location = new Point(74, 554);
             button1.Name = "button1";
             button1.Size = new Size(138, 59);
             button1.TabIndex = 24;
@@ -318,7 +319,7 @@
             // 
             button2.BackColor = SystemColors.ScrollBar;
             button2.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(314, 554);
+            button2.Location = new Point(254, 554);
             button2.Name = "button2";
             button2.Size = new Size(147, 59);
             button2.TabIndex = 25;
@@ -330,7 +331,7 @@
             // 
             button3.BackColor = SystemColors.ScrollBar;
             button3.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(556, 554);
+            button3.Location = new Point(442, 554);
             button3.Name = "button3";
             button3.Size = new Size(143, 59);
             button3.TabIndex = 26;
@@ -353,7 +354,7 @@
             // 
             button5.BackColor = SystemColors.ScrollBar;
             button5.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(796, 554);
+            button5.Location = new Point(628, 554);
             button5.Name = "button5";
             button5.Size = new Size(136, 59);
             button5.TabIndex = 28;
@@ -404,12 +405,25 @@
             buttonConnect.UseVisualStyleBackColor = true;
             buttonConnect.Click += buttonConnect_Click;
             // 
+            // button6
+            // 
+            button6.BackColor = SystemColors.ScrollBar;
+            button6.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.Location = new Point(802, 554);
+            button6.Name = "button6";
+            button6.Size = new Size(134, 59);
+            button6.TabIndex = 33;
+            button6.Text = "SEND";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1415, 693);
+            Controls.Add(button6);
             Controls.Add(buttonConnect);
             Controls.Add(historyBox);
             Controls.Add(serverIP);
@@ -485,5 +499,6 @@
         private Label serverIP;
         private TextBox historyBox;
         private Button buttonConnect;
+        private Button button6;
     }
 }
