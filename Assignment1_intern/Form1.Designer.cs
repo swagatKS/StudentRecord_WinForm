@@ -391,7 +391,7 @@
             historyBox.Multiline = true;
             historyBox.Name = "historyBox";
             historyBox.ScrollBars = ScrollBars.Both;
-            historyBox.Size = new Size(362, 427);
+            historyBox.Size = new Size(362, 493);
             historyBox.TabIndex = 31;
             // 
             // buttonConnect
