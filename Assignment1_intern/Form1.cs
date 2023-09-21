@@ -420,7 +420,10 @@ namespace Assignment1_intern
 
             try
             {
-                string[] csvLines = File.ReadAllLines(@"C:\Users\ksswa\source\repos\Assignment1_intern\StudentData.csv");
+                string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+                path = path.Substring(0, path.Length - 43);
+                string[] csvLines = File.ReadAllLines(path + "StudentData.csv");
+                //string[] csvLines = File.ReadAllLines(@"C:\Users\ksswa\source\repos\Assignment1_intern\StudentData.csv");
                 for (int i = 0; i < csvLines.Length; i++)
                 {
                     string[] rowData = csvLines[i].Split(',');

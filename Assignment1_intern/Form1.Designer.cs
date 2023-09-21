@@ -354,7 +354,7 @@
             // 
             button5.BackColor = SystemColors.ScrollBar;
             button5.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            button5.Location = new Point(632, 554);
+            button5.Location = new Point(637, 554);
             button5.Name = "button5";
             button5.Size = new Size(136, 59);
             button5.TabIndex = 28;
@@ -410,7 +410,7 @@
             button6.BackColor = SystemColors.ScrollBar;
             button6.Font = new Font("Poor Richard", 11F, FontStyle.Bold, GraphicsUnit.Point);
             button6.ForeColor = SystemColors.ActiveCaptionText;
-            button6.Location = new Point(804, 554);
+            button6.Location = new Point(814, 554);
             button6.Name = "button6";
             button6.Size = new Size(138, 59);
             button6.TabIndex = 24;
