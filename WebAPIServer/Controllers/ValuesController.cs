@@ -6,7 +6,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
-using Assignment1_intern;
 
 namespace WebAPIServer.Controllers
 {
@@ -25,7 +24,7 @@ namespace WebAPIServer.Controllers
         }
 
         // POST api/values
-        public HttpResponseMessage Post([FromBody] Student student)
+        public HttpResponseMessage Post([FromBody] StudentPost student)
         {
             if (student == null)
             {
@@ -36,9 +35,9 @@ namespace WebAPIServer.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, student, Configuration.Formatters.JsonFormatter);
         }
 
-        private void LogStudentInformation(Student student)
+        private void LogStudentInformation(StudentPost student)
         {
-            string logMessage = $"Received student information: Name - {student.Name}, Age - {student.Age}";
+            string logMessage = $"Received student information: Name - {student.name}, DOB - {student.dob}, College Name - {student.clgname}, Gender - {student.gender}, PhNo - {student.phno}, CGPA - {student.cgpa}, Email - {student.email}";
 
             // Write to the event log
             EventLog eventLog = new EventLog();
