@@ -466,7 +466,7 @@ namespace Assignment1_intern
 
         private async void button6_Click(object sender, EventArgs e)
         {
-            string apiUrl = "http://localhost:64077/api/";
+            string apiUrl = "http://localhost:64077/api/values";
 
             using (var httpClient = new HttpClient())
             {
@@ -486,6 +486,7 @@ namespace Assignment1_intern
                         else
                         {
                             MessageBox.Show("Error sending student data. Status Code: " + response.StatusCode, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
                         }
                     }
                 }
