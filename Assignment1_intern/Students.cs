@@ -13,12 +13,22 @@ using SuperSimpleTcp;
 
 namespace Assignment1_intern
 {
-    public class Students
+    public class Students : IEnumerable<Student>
     {
 
 
         private Dictionary<string , Student> StudentMap =  new Dictionary<string, Student>();
 
+        public IEnumerator<Student> GetEnumerator()
+        {
+            return StudentMap.Values.GetEnumerator();
+        }
+
+        
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
         public bool AddStudent(Student student)
         {
             bool RetVal = false;

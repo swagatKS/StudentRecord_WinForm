@@ -5,6 +5,8 @@ using System.Xml.Serialization;
 using SuperSimpleTcp;
 using System.Text;
 using System.Windows.Forms;
+using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace Assignment1_intern
 {
@@ -462,9 +464,36 @@ namespace Assignment1_intern
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private async void button6_Click(object sender, EventArgs e)
         {
+            string apiUrl = "http://localhost:64077/api/";
 
+            using (var httpClient = new HttpClient())
+            {
+                try
+                {
+                    // Assuming students is an instance of Students
+                    foreach (var student in students)
+                    {
+                        string json = JsonSerializer.Serialize(student);
+
+                        var response = await httpClient.PostAsJsonAsync(apiUrl, json);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            MessageBox.Show("Student data sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error sending student data. Status Code: " + response.StatusCode, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
