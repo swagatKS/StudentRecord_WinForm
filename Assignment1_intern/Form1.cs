@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net.Http.Json;
 using System.Text.Json;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Assignment1_intern
 {
@@ -466,22 +468,24 @@ namespace Assignment1_intern
 
         private async void button6_Click(object sender, EventArgs e)
         {
-            string apiUrl = "http://localhost:64077/api/values";
 
-            using (var httpClient = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
+                int flag = 0;
                 try
                 {
                     // Assuming students is an instance of Students
-                    foreach (var student in students)
+                    foreach (Student student in students)
                     {
-                        string json = JsonSerializer.Serialize(student);
-
-                        var response = await httpClient.PostAsJsonAsync(apiUrl, json);
+                        string json = JsonConvert.SerializeObject(student);
+                        var content = new StringContent(json, Encoding.UTF8, "application/json");
+                        HttpResponseMessage response = await client.PostAsync("http://localhost:64077/api/values", content);
 
                         if (response.IsSuccessStatusCode)
                         {
-                            MessageBox.Show("Student data sent successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            string responseContent = await response.Content.ReadAsStringAsync();
+                            historyBox.Text += $"STUDENT DATA SENT TO API SERVER: {responseContent}{Environment.NewLine}";
+                            flag = 1;
                         }
                         else
                         {
@@ -490,10 +494,13 @@ namespace Assignment1_intern
                         }
                     }
                 }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                if (flag == 1) { MessageBox.Show("Student data sent successfully.", "Success", MessageBoxButtons.OK); }
             }
         }
     }

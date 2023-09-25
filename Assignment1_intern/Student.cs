@@ -8,14 +8,14 @@ namespace Assignment1_intern
 {
     public class Student
     {
-        private string name;
-        private string dob;
-        private string clgname;
-        private char gender;
-        private string phno;
-        private decimal cgpa;
-        private string email;
-        private List<string> skills;
+        public string name;
+        public string dob;
+        public string clgname;
+        public char gender;
+        public string phno;
+        public decimal cgpa;
+        public string email;
+        public List<string> skills;
 
         public string getName() { return name; }
         public string getDob() { return dob; }
