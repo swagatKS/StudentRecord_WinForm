@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.NetworkInformation;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
-using Assignment1_intern;
 
 namespace WebAPIServer.Controllers
 {
@@ -25,25 +25,24 @@ namespace WebAPIServer.Controllers
         }
 
         // POST api/values
-        public HttpResponseMessage Post([FromBody] Student student)
+        public IHttpActionResult Post([FromBody] StudentPost student)
         {
             if (student == null)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Invalid student data");
+                return BadRequest("Invalid student data");
             }
 
-            LogStudentInformation(student);
-            return Request.CreateResponse(HttpStatusCode.OK, student, Configuration.Formatters.JsonFormatter);
-        }
+            string skillList = "[";
+            foreach (string skill in student.skills)
+            {
+                skillList += skill;
+                skillList += ",";
+            }
+            skillList += "]";
+            string logMessage = $"Received student information: Name - {student.name}, DOB - {student.dob}, College Name - {student.clgname}, Gender - {student.gender}, PhNo - {student.phno}, CGPA - {student.cgpa}, Email - {student.email}, Skills - {skillList}\n";
 
-        private void LogStudentInformation(Student student)
-        {
-            string logMessage = $"Received student information: Name - {student.Name}, Age - {student.Age}";
-
-            // Write to the event log
-            EventLog eventLog = new EventLog();
-            eventLog.Source = "YourApplicationName"; // Set this to your application name
-            eventLog.WriteEntry(logMessage, EventLogEntryType.Information);
+            System.Diagnostics.Trace.WriteLine(logMessage);
+            return Ok(student);
         }
 
         // PUT api/values/5
