@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace Assignment1_intern
+namespace WebAPIServer
 {
-    public class Student
+    public class StudentPost
     {
         public string name;
         public string dob;
@@ -24,28 +23,19 @@ namespace Assignment1_intern
         public string getPhno() { return phno; }
         public decimal getCgpa() { return cgpa; }
         public string getEmail() { return email; }
-        public List<string> getSkills() { return skills; } 
+        public List<string> getSkills() { return skills; }
 
-        public Student(string name, string dob, string clg, char g, string phno, decimal cgpa, string mail, List<string> skill)
+        public StudentPost(string name, string dob, string clg, char g, string phno, decimal cgpa, string mail, List<string> skill)
         {
             this.name = name;
             this.dob = dob;
             this.clgname = clg;
             this.gender = g;
-            this.phno = phno; 
+            this.phno = phno;
             this.cgpa = cgpa;
             this.email = mail;
             this.skills = skill;
         }
 
     }
-
-
-
-    
-
 }
-
-
-
-

@@ -5,6 +5,10 @@ using System.Xml.Serialization;
 using SuperSimpleTcp;
 using System.Text;
 using System.Windows.Forms;
+using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Assignment1_intern
 {
@@ -462,9 +466,42 @@ namespace Assignment1_intern
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private async void button6_Click(object sender, EventArgs e)
         {
 
+            using (HttpClient client = new HttpClient())
+            {
+                int flag = 0;
+                try
+                {
+                    // Assuming students is an instance of Students
+                    foreach (Student student in students)
+                    {
+                        string json = JsonConvert.SerializeObject(student);
+                        var content = new StringContent(json, Encoding.UTF8, "application/json");
+                        HttpResponseMessage response = await client.PostAsync("http://localhost:64077/api/values", content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string responseContent = await response.Content.ReadAsStringAsync();
+                            historyBox.Text += $"STUDENT DATA SENT TO API SERVER: {responseContent}{Environment.NewLine}";
+                            flag = 1;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error sending student data. Status Code: " + response.StatusCode, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        }
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (flag == 1) { MessageBox.Show("Student data sent successfully.", "Success", MessageBoxButtons.OK); }
+            }
         }
     }
 }
